@@ -4,6 +4,7 @@ namespace MyMvcApp.Controllers
 {
     public class HomeController : Controller
     {
+        //handle get methode
         public IActionResult Index()
         {
             return View();
@@ -12,16 +13,15 @@ namespace MyMvcApp.Controllers
         [HttpPost]
         public IActionResult Calculate(double? firstnum, string operation, double? secondnum)
         {
-            //cheking if it is empty or not
+            // cheking if the numbers have value or not 
             if (!firstnum.HasValue || !secondnum.HasValue)
             {
                 ViewBag.Error = "please enter a valid number.";
                 return View("Index");
             }
-
             if (operation == "+" || operation == "-" || operation == "*" || operation == "/")
             {
-                switch (operation)
+               switch (operation)
                 {
                     case "+":
                         ViewBag.Result = firstnum.Value + secondnum.Value;
