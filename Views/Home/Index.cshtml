@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<H2 style="text-align: center; color:blue"> Programming paradigm lab simple calculator</H2>
+<br><br><br>
+
+<form method="post" action="@Url.Action("Calculate", "Home")">
+    <div>
+        <input placeholder="Enter your first Num" type="text" id="firstnum" name="firstnum" />
+        <input placeholder="Enter the operation" type="text" name="operation" id="operation">
+        <input placeholder="Enter the second number" type="text" id="secondnum" name="secondnum" />
+        <button style="background: green;" type="submit">Calculate</button>
+    </div>
+</form>
+
+<!--same like above it checks if the result is there or not if there then it prints the error messeage-->
+<br><br>
+@if(ViewBag.result != null){
+    <p>Result: @ViewBag.Result</p>}
+    <!--this checks if the error is empty or not if it is not empty then it prints the error messeage -->
+@if(ViewBag.Error != null)
+{
+    <p style="color: red;">@ViewBag.Error</p>
+}
+
+
+
